@@ -81,14 +81,11 @@ public class MDBService {
                     JSONObject movieJSON = resultsJSON.getJSONObject(i);
                     String title = movieJSON.getString("title");
                     String synopsis = movieJSON.getString("overview");
-                    String director = movieJSON.getString("director");
-                    String mainActors = movieJSON.getString("mainActors");
                     String imageUrl = movieJSON.getString("poster_path");
 
 
 
-                Movie movie = new Movie(title, synopsis, director, mainActors,
-                        imageUrl);
+                Movie movie = new Movie(title, synopsis, imageUrl);
                 movies.add(movie);
             }
 
