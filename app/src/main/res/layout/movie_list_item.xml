@@ -10,12 +10,6 @@
         android:src="@drawable/rocky"
         android:scaleType="centerCrop"/>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:background="#ffffff"
-        android:layout_height="match_parent"
-        android:padding="10dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,12 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Synopsis"
-        android:id="@+id/categoryTextView"
-        android:layout_below="@+id/movieSynopsisTextView"
+        android:id="@+id/movieSynopsisTextView"
+        android:layout_below="@+id/movieTitleTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textStyle="italic"/>
 
 
-</LinearLayout>
 </LinearLayout>

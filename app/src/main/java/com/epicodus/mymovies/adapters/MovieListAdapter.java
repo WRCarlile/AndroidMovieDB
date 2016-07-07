@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.epicodus.mymovies.R;
 import com.epicodus.mymovies.models.Movie;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -22,10 +23,10 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
     private ArrayList<Movie> mMovies = new ArrayList<>();
     private Context mContext;
 
-   public MovieListAdapter(Context context, ArrayList<Movie> movies) {
-       mContext = context;
-       mMovies = movies;
-   }
+    public MovieListAdapter(Context context, ArrayList<Movie> movies) {
+        mContext = context;
+        mMovies = movies;
+    }
     @Override
     public MovieListAdapter.MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_list_item, parent, false);
@@ -44,12 +45,9 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
     }
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.movieImageView)
-        ImageView mMovieImageView;
-        @Bind(R.id.movieTitleTextView)
-        TextView mTitleTextView;
-        @Bind(R.id.movieSynopsisTextView)
-        TextView mSynopsisTextView;
+        @Bind(R.id.movieImageView) ImageView mMovieImageView;
+        @Bind(R.id.movieTitleTextView) TextView mTitleTextView;
+        @Bind(R.id.movieSynopsisTextView) TextView mSynopsisTextView;
 
         private Context mContext;
 
@@ -60,6 +58,8 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
 
         }
         public void bindMovie (Movie movie) {
+            Picasso.with(mContext).load(movie.getImageUrl()).into(mMovieImageView);
+
             mTitleTextView.setText(movie.getTitle());
             mSynopsisTextView.setText(movie.getSynopsis());
 

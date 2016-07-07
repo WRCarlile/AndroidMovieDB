@@ -5,9 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.epicodus.mymovies.R;
 import com.epicodus.mymovies.adapters.MovieListAdapter;
@@ -25,9 +22,11 @@ import okhttp3.Response;
 
 public class MoviesActivity extends AppCompatActivity {
     public static final String TAG = MoviesActivity.class.getSimpleName();
-    public ArrayList<Movie> mMovies = new ArrayList<>();
+
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private MovieListAdapter mAdapter;
+
+    public ArrayList<Movie> mMovies = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +47,7 @@ public class MoviesActivity extends AppCompatActivity {
     }
     private void getTitle(String movieTitle) {
         final MDBService mdbService = new MDBService();
+
         mdbService.findTitle(movieTitle, new Callback() {
 
             @Override

@@ -1,8 +1,6 @@
 package com.epicodus.mymovies.models;
 
-/**
- * Created by Guest on 7/7/16.
- */
+
 public class Movie {
     String mTitle;
     String mSynopsis;
