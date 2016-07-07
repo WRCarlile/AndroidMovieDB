@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,9 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
     @Override
     public int getItemCount() {
         return mMovies.size();
+
     }
+
 
     public class MovieViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.movieImageView) ImageView mMovieImageView;

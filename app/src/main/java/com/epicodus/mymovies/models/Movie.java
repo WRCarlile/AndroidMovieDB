@@ -13,7 +13,7 @@ public class Movie {
     public Movie(String title, String synopsis, String imageUrl) {
         this.mTitle = title;
         this.mSynopsis = synopsis;
-        this.mImageUrl = imageUrl;
+        this.mImageUrl = "http://image.tmdb.org/t/p/w500" + imageUrl;
     }
 
     public String getTitle() {

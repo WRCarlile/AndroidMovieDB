@@ -40,34 +40,34 @@ public class MDBService {
         call.enqueue(callback);
     }
 
-    public static void findRating(String movieRating, Callback callback) {
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MOVIEDB_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.MOVIEDB_RATING_QUERY_PARAMETER, movieRating);
-        String url = urlBuilder.build().toString();
-
-        OkHttpClient client = new OkHttpClient.Builder()
-                .build();
-
-        Request request= new Request.Builder()
-                .url(url)
-                .build();
-        Call call = client.newCall(request);
-        call.enqueue(callback);
-    }
-    public static void findDate(String movieDate, Callback callback) {
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MOVIEDB_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.MOVIEDB_DATE_QUERY_PARAMETER, movieDate);
-        String url = urlBuilder.build().toString();
-
-        OkHttpClient client = new OkHttpClient.Builder()
-                .build();
-
-        Request request= new Request.Builder()
-                .url(url)
-                .build();
-        Call call = client.newCall(request);
-        call.enqueue(callback);
-    }
+//    public static void findRating(String movieRating, Callback callback) {
+//        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MOVIEDB_BASE_URL).newBuilder();
+//        urlBuilder.addQueryParameter(Constants.MOVIEDB_RATING_QUERY_PARAMETER, movieRating);
+//        String url = urlBuilder.build().toString();
+//
+//        OkHttpClient client = new OkHttpClient.Builder()
+//                .build();
+//
+//        Request request= new Request.Builder()
+//                .url(url)
+//                .build();
+//        Call call = client.newCall(request);
+//        call.enqueue(callback);
+//    }
+//    public static void findDate(String movieDate, Callback callback) {
+//        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MOVIEDB_BASE_URL).newBuilder();
+//        urlBuilder.addQueryParameter(Constants.MOVIEDB_DATE_QUERY_PARAMETER, movieDate);
+//        String url = urlBuilder.build().toString();
+//
+//        OkHttpClient client = new OkHttpClient.Builder()
+//                .build();
+//
+//        Request request= new Request.Builder()
+//                .url(url)
+//                .build();
+//        Call call = client.newCall(request);
+//        call.enqueue(callback);
+//    }
 
     public ArrayList<Movie> processResults(Response response) {
         ArrayList<Movie> movies = new ArrayList<>();
@@ -82,11 +82,10 @@ public class MDBService {
                     String title = movieJSON.getString("title");
                     String synopsis = movieJSON.getString("overview");
                     String imageUrl = movieJSON.getString("poster_path");
-
-
-
+                    Log.d("poster", imageUrl);
                 Movie movie = new Movie(title, synopsis, imageUrl);
                 movies.add(movie);
+
             }
 
          }
@@ -96,6 +95,7 @@ public class MDBService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         return movies;
     }
 }
